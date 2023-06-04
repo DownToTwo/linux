@@ -1,0 +1,29 @@
+- name: Setup Alpine Linux environment
+  # You may pin to the exact commit or the version.
+  # uses: jirutka/setup-alpine@39d2d96fa8e4b713be89c0239a5c3b9a0f49838d
+  uses: jirutka/setup-alpine@v1.1.3
+  with:
+    # URL of the apk-tools static binary to use. It must end with `#!sha256!` followed by a SHA-256 hash of the file. This should normally be left at the default value.
+
+    apk-tools-url: armv7 # optional, default is https://gitlab.alpinelinux.org/api/v4/projects/5/packages/generic/v2.12.9/x86_64/apk.static#!sha256!5176da3d4c41f12a08b82809aca8e7e2e383b7930979651b8958eca219815af5
+    # CPU architecture to emulate using QEMU. Allowed values are: `x86_64` (native), `
+    #x86` (native), `aarch64`, `armhf` (armv6 with hard-float), `armv7`, `ppc64le`, `riscv64` (available only for branch `edge`), and `s390x`
+
+    arch: armv7 # optional, default is x86_64
+    # Alpine branch (aka release) to install (e.g. `v3.15`, `latest-stable`, `edge`).
+    branch: edge # optional, default is latest-stable
+    # A list of paths of additional trusted keys (for installing packages from the extra-repositories) to copy into /etc/apk/keys/. The paths should be relative to the workspace directory (the default location of your repository when using the checkout action).
+
+    extra-keys: # optional, default is 
+    # A list of additional Alpine repositories to add into /etc/apk/repositories (Alpine's official main and community repositories are always added).
+
+    extra-repositories: # optional, default is 
+    # URL of an Alpine Linux mirror to fetch packages from.
+    mirror-url: # optional, default is http://dl-cdn.alpinelinux.org/alpine
+    # A list of Alpine packages to install.
+    packages: # optional, default is 
+    # Name of the script to run `sh` in the Alpine chroot that will be added to `GITHUB_PATH`. This name should be used in `jobs.<job_id>.steps[*].shell` (e.g. `shell: alpine.sh {0}`) to run the step's script in the chroot.
+
+    shell-name: # optional, default is alpine.sh
+    # A list of directories on the host system to mount bind into the chroot. You can specify the source and destination path: `<src-dir>:<dest-dir>``. The `<src-dir>` is an absolute path of existing directory on the host system, `<dest-dir>` is an absolute path in the chroot (it will be created if doesn't exist). You can omit the latter if they're the same.
+    volumes: # optional, default is 
